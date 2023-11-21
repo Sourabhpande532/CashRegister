@@ -16,11 +16,12 @@
             Enter the bill amount and cash amount in
             the given block to get the results
         </p>
-        <label for="bill-amount">Bill Amount:</label>
-        <input type="text" id="bill-amount">
+        <label for="bill-amoun">Bill Amount:</label>
+        <input id="bill-amount" type="number">
         <label for="cash-given">Cash Ammount:</label>
-        <input type="text" id="cash-given">
-        <button>Next➡️</button>
+        <input type="number" id="cash-given">
+        <button id="check-btn">Next➡️</button>
+        <p id="error-message"></p>
         <table class="change-table">
             <caption>Return Change</caption>
             <tr>
@@ -39,7 +40,7 @@
             </tr>
         </table>
     </div>
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
