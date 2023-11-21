@@ -9,7 +9,7 @@ checkButton.addEventListener("click", function validateBillAndCashAmount() {
     if (cashGiven.value >= billAmount.value) {
 
     } else {
-      showMessage("The cash should be at least equal to bill amount");
+      showMessage("The cash you provided should be at least equal to bill amount");
     }
   } else {
     showMessage("The bill amount should be greater than 0");
