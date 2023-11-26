@@ -23,5 +23,5 @@ This Cash Register app, built with pure JavaScript, helps you manage your money 
 ---
 
 ## Preview
-![Website Preview](./images/cashregi.png)
+![Website Preview](./images/cashy.png)
 
