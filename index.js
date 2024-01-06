@@ -1,10 +1,10 @@
-const billAmount = document.querySelector("#bill-amount");
-const cashGiven = document.querySelector("#cash-given");
-const errorMessage = document.querySelector("#error-message");
+const billAmountInput = document.querySelector("#bill-amount");
+const cashGivenInput = document.querySelector("#cash-given");
+const errorMessageEl = document.querySelector("#error-message");
 const checkButton = document.querySelector("#check-btn");
 const buttonNext = document.querySelector("#btn-next");
-const noOfNotesAvailable = document.querySelectorAll(".no-of-notes");
-const cashGivenAmount = document.querySelector(".cash-given-amount");
+const noOfNotesAvailableEl = document.querySelectorAll(".no-of-notes");
+const cashGivenAmountEl = document.querySelector(".cash-given-amount");
 const returnChangeTable = document.querySelector(".change-table");
 
 const availableNotes = [2000, 500, 200, 100, 50, 20, 10, 5, 1];
@@ -12,25 +12,24 @@ const availableNotes = [2000, 500, 200, 100, 50, 20, 10, 5, 1];
 function nextBtnHandler(event) {
   event.preventDefault(); // Prevent the default form submission behavior
 
-  if (Number(billAmount.value) > 0) {
-    cashGivenAmount.style.display = "block";
+  if (Number(billAmountInput.value) > 0) {
+    cashGivenAmountEl.style.display = "block";
     buttonNext.style.display = "none";
-    errorMessage.style.display = "none";
+    errorMessageEl.style.display = "none";
   } else {
     showMessage("Please enter valid values");
   }
 }
 
 checkButton.addEventListener("click", function validateBillAndCashAmount() {
-  hideMessage();
-  if (Number(billAmount.value) > 0) {
-    if (cashGiven.value === billAmount.value) {
+  if (Number(billAmountInput.value) > 0) {
+    if (cashGivenInput.value === billAmountInput.value) {
       showMessage("don't need to return change");
       returnChangeTable.style.display = "none"
     }
-    if (Number(cashGiven.value) >= Number(billAmount.value)) {
+    if (Number(cashGivenInput.value) >= Number(billAmountInput.value)) {
       const amountToBeReturn =
-        Number(cashGiven.value) - Number(billAmount.value);
+        Number(cashGivenInput.value) - Number(billAmountInput.value);
       calculateChange(amountToBeReturn);
     } else {
       showMessage("Do you wanna wash dishes? 🍽️");
@@ -47,17 +46,17 @@ function calculateChange(amountToBeReturned) {
     /* Then we need to update the amount to be return remaining value after denomination*/
     amountToBeReturned = amountToBeReturned % availableNotes[i];
     /* update the no. of Notes in the table for the current ammount */
-    noOfNotesAvailable[i].innerText = numberOfNotes;
+    noOfNotesAvailableEl[i].innerText = numberOfNotes;
   }
 }
 
 function hideMessage() {
-  errorMessage.style.display = "none";
+  errorMessageEl.style.display = "none";
 }
 
 function showMessage(message) {
-  errorMessage.style.display = "block";
-  errorMessage.innerText = message;
+  errorMessageEl.style.display = "block";
+  errorMessageEl.innerText = message;
 }
 
 buttonNext.addEventListener("click", nextBtnHandler);
